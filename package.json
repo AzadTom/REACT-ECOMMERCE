@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "dayjs": "^1.11.9",
     "jwt-decode": "^3.1.2",
     "jwt-encode": "^1.0.1",
