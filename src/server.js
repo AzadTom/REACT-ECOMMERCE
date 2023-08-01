@@ -5,31 +5,34 @@ import { v4 as uuid } from "uuid";
 import { formatDate, secretcode } from "./backend/utils/constant";
 import sign from "jwt-encode";
 
-export  default function makeServer({ environment = "development" } = {}) {
+export  default function makeServer({ environment = "development" } = { }) {
   return new Server({
     serializers: {
       application: RestSerializer,
     },
     environment,
     models: {
-      user: Model,
-      
-    },
-
+     user: Model,
+   },
     seeds(server) {
-      users.forEach((element) => {
+
+users.forEach((element) => {
+
         server.create("user", { ...element });
-      });
-    },
+
+});
+
+},
 
     routes() {
+
+
       this.namespace = "api";
 
       this.post("/auth/signup", (schema,request ) => {
         const { email, password, ...rest } = JSON.parse(request.requestBody);
-
         try {
-          const foundUser = schema.users.findBy({ email:email });
+          const foundUser = schema.users.findBy({ email });
           if (foundUser) {
 
             alert("User Already exist!")
@@ -46,12 +49,14 @@ export  default function makeServer({ environment = "development" } = {}) {
 
             const _id = uuid();
             const newUser = {
+
               _id,
               email,
               password,
               createdAt: formatDate(),
               updatedAt: formatDate(),
               ...rest
+
             };
 
             const createdUser =schema.users.create(newUser)

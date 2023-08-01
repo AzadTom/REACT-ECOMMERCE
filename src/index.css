@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components{
+
+
+    .linear{
+
+        background: linear-gradient(180deg, transparent, rgba(8, 8, 8, 0.61), #000000);
+    }
+
+    .linear-left{
+
+        background: linear-gradient(270deg, transparent, rgba(8, 8, 8, 0.61), #000000);
+    }
+
+    li:hover{
+
+        font-weight: 400;
+        cursor: pointer;
+
+    }
+
+    
+
+   
+
+  
+
+
+}

@@ -1,11 +1,20 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import Footer from '../components/Footer'
+import Acta from '../components/Acta'
+import HeroSection from '../components/HeroSection'
 
 function Home() {
 
-  const navigator = useNavigate()
+ 
+
   return (
-    <button onClick={()=> navigator("/signup")} > Home</button>
+
+    <>
+    <HeroSection/>
+    <Acta/>
+     <Footer/>
+    </>
+    
   )
 }
 
