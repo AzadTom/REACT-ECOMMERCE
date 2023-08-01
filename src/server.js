@@ -1,9 +1,12 @@
 import { Response } from "miragejs";
 import { Server, Model, RestSerializer } from "miragejs";
 import { users } from "./backend/db/users";
+import { products} from "./backend/db/products";
 import { v4 as uuid } from "uuid";
 import { formatDate, secretcode } from "./backend/utils/constant";
 import sign from "jwt-encode";
+import jwtDecode from "jwt-decode";
+
 
 export  default function makeServer({ environment = "development" } = { }) {
   return new Server({
@@ -13,6 +16,7 @@ export  default function makeServer({ environment = "development" } = { }) {
     environment,
     models: {
      user: Model,
+     product:Model
    },
     seeds(server) {
 
@@ -21,6 +25,11 @@ users.forEach((element) => {
         server.create("user", { ...element });
 
 });
+
+ products.forEach((element)=>{
+
+   server.create("product",{...element})
+ })
 
 },
 
@@ -118,6 +127,38 @@ users.forEach((element) => {
             }
           );
         }
+
+      })
+
+      this.get("/auth/getproducts",(schema,request)=>{
+
+        const encodedToken = request.requestHeaders.Authorization;
+
+        const decodeToken = jwtDecode(encodedToken);
+
+        if(decodeToken)
+        {
+
+          const user = schema.users.findBy({ email: decodeToken.email });
+
+          if(user)
+          {
+
+
+            return new Response(201,{},{products:this.db.products});
+          }
+
+        }
+        return new Response(
+          401,
+          {},
+          { errors: ["The token is invalid. Unauthorized access error."] }
+        );
+
+
+
+      
+
 
       })
 
