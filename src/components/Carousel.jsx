@@ -25,7 +25,7 @@ function Carousel({images}) {
   return (
     <section>
         <div style={{ backgroundImage: `url("${images[currentIndex]}")`}}
-         className='bg-cover bg-no-repeat z-20 bg-top w-full h-[34rem] flex flex-col justify-end pb-24  items-center text-white gap-2 bg-center-top  relative '>
+         className='bg-cover  bg-no-repeat  bg-top w-full h-[34rem] flex flex-col justify-end pb-24  items-center text-white gap-2   relative'>
         <h2 className='z-50'>Get 20% off on your first order!</h2>
           <p className='z-50'>Find your perfect shopping experience at ATTIREX</p>
           <button className='z-50 bg-white rounded-[50px] text-red-600 px-4 py-2' onClick={()=> navigate("/signup") }>Shop Now</button>

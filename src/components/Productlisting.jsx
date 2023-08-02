@@ -51,14 +51,14 @@ function Productlisting() {
   return (
    <section className='lg:p-12 bg-black'>
      
-            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4   gap-6 p-6 '>
+            <div className='columns-2 sm:columns-3 md:columns-4'>
                 
 
                   {
 
                     products.map((item)=>(
 
-                        <div>
+                        <div className='p-2'>
                             <ProductCard item={item}/>
                         </div>
                     ))

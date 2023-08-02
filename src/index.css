@@ -24,6 +24,10 @@
     }
 
     
+   .card-list{
+
+    -webkit-column-count: 4;
+   }
 
    
 
