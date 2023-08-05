@@ -11,7 +11,7 @@ function ProductCard({ item }) {
         <img
           src={item.image}
           alt="hero-img"
-          className="object-cover rounded rounded-b-none w-full h-[24rem]"
+          className="object-cover rounded rounded-b-none w-full h-full"
         />
 
         <div className="p-2 text-white rounded rounded-se-none rounded-ss-none bg-gray-900">
