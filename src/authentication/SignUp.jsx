@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import InputField from './InputField';
 import OAuth from './OAuth';
 import { Link} from 'react-router-dom';
 import { validateSignupForm } from './validatecredential';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { AuthContext }from '../context/AuthContext'
+
+
+function SignUp( ) {
 
 
 
-function SignUp() {
+        
+ 
+       const {signupHandler} = useContext(AuthContext);
 
-  const navigator = useNavigate()
+
 
       const [userDetails, setUserDetails] = useState({
         email: "",
@@ -35,32 +39,8 @@ function SignUp() {
         const { isValid, errors } = validateSignupForm(userDetails);
     
         if (isValid) {
-          
-          try {
-
-            const  response = await axios.post("api/auth/signup",{...userDetails})
-
-            const {status, data: { createdUser, encodedToken }} = response;
-
-           
-
-            if (status === 200 || status === 201) {
-             
-              localStorage.setItem("login",JSON.stringify({ user: createdUser, token: encodedToken }));
-              navigator("/");
-              
-            }
-
-                
-          } 
-          catch (error) {
-
-            console.log(error)
-            
-          }
-         
-
-        } 
+             signupHandler(userDetails)
+      }
         else
          {
           setUserDetails({ ...userDetails, errors });
@@ -88,6 +68,8 @@ function SignUp() {
       <h2 className="text-3xl">Sign Up With</h2>
 
         <OAuth/>
+
+        
      
       <form  onSubmit={signupFormSubmitHandler}  className="flex flex-col gap-4">
 

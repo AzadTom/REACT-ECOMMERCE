@@ -1,41 +1,30 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import React from "react";
 import InputField from "./InputField";
 import OAuth from "./OAuth";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import {AuthContext}  from '../context/AuthContext'
+
 
 
 
 function Login() {
 
-  const  navigator = useNavigate();
+  
+  const { loginHandler} = useContext(AuthContext)
+
+ 
  
   
  async function loginService(info)
  {
 
-  try {
 
-    const  response = await axios.post("/api/auth/login",{...info})
+     loginHandler(info)
 
-    const {status, data: { createdUser, encodedToken }} = response;
+ 
+   
 
-    if (status === 200 || status === 201) {
-     
-      localStorage.setItem("login",JSON.stringify({ user: createdUser, token: encodedToken }));
-      navigator("/");
-      
-    }
-
-        
-  } 
-  catch (error) {
-
-    console.log(error)
-    
-  }
  }
 
 

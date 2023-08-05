@@ -2,8 +2,11 @@ import React from 'react'
 import PersonIcon from '@mui/icons-material/Person';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
+import { useNavigate } from 'react-router-dom';
 
 function Header(){
+
+  const navigator = useNavigate()
   return (
     <header className=' sticky top-0  bg-gradient-to-r from-sky-400 to-indigo-800  pb-2'>
         <nav className='text-white flex  justify-between  items-center  px-2 pt-4 ' >
@@ -28,7 +31,7 @@ function Header(){
                 </form>
                 <div>
                     <ul className='md:flex space-x-4 items-center hidden font-extralight '>
-                        <li ><PersonIcon/></li>
+                        <li  onClick={ ()=>  navigator("/account")}><PersonIcon/></li>
                         <li><FavoriteIcon/></li>
                         <li><LocalMallIcon/></li>
                     </ul>

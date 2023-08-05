@@ -20,14 +20,12 @@
 
         font-weight: 400;
         cursor: pointer;
+        
 
     }
 
     
-   .card-list{
-
-    -webkit-column-count: 4;
-   }
+   
 
    
 

@@ -1,10 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import { BrowserRouter } from 'react-router-dom';
 import './App.css'
 import './index.css'
 import makeServer from "./server.js"
-import { BrowserRouter } from 'react-router-dom'
+import Auth from '../src/context/AuthContext.jsx'
+
 
 
 makeServer()
@@ -13,8 +15,20 @@ makeServer()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-    <App />
-    </BrowserRouter>
-  </React.StrictMode>,
+
+
+<BrowserRouter>
+   
+   <Auth>
+   <App/>
+   </Auth>
+
+   
+     
+</BrowserRouter>
+  
+     
+     
+    
+  </React.StrictMode>
 )
