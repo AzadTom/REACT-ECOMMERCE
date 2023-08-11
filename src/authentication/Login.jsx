@@ -3,7 +3,7 @@ import React from "react";
 import InputField from "./InputField";
 import OAuth from "./OAuth";
 import { Link } from "react-router-dom";
-import {AuthContext}  from '../context/AuthContext'
+import {useAuth}  from '../context/AuthContext'
 
 
 
@@ -11,7 +11,7 @@ import {AuthContext}  from '../context/AuthContext'
 function Login() {
 
   
-  const { loginHandler} = useContext(AuthContext)
+  const { loginHandler} = useAuth()
 
  
  
@@ -64,7 +64,7 @@ function Login() {
   };
 
   return (
-    <section className=" bg-no-repeat object-cover bg-gradient-to-r from-cyan-500 to-blue-800   h-screen  w-full  flex justify-center items-center shadow">
+    <section className=" bg-no-repeat object-cover bg-gray-950    h-screen  w-full  flex justify-center items-center shadow">
       <div className="flex flex-col justify-center text-center gap-8  bg-white p-8 drop-shadow text-black rounded">
         <h2 className="text-3xl">Sign In With</h2>
 

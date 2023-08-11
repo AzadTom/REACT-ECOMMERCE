@@ -46,6 +46,7 @@ function Productlisting() {
     useEffect(()=>{
 
         getAllproducts()
+        
     },[])
 
   return (

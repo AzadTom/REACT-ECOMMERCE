@@ -1,4 +1,4 @@
-import React, { createContext ,useReducer } from 'react'
+import React, { createContext ,useContext,useReducer } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 import {
@@ -9,14 +9,15 @@ import {
 } from "../utils/authservice"
 
 
-export const AuthContext = createContext();
+  const AuthContext = createContext();
 
-export default function Auth({children}) {
+export default function AuthProvider({children}) {
 
 
   const navigator = useNavigate();
 
   const localStorageToken = JSON.parse(localStorage.getItem("login"));
+
   const initialState = {
     token: localStorageToken?.token || null,
     currentUser: localStorageToken?.user || null,
@@ -106,7 +107,7 @@ export default function Auth({children}) {
   const logoutHandler = () => {
     localStorage.removeItem("login");
     dispatch({ type: LOGOUT });
-    navigator("/login");
+  
   };
 
 
@@ -122,19 +123,23 @@ export default function Auth({children}) {
   
 
 
+
   return (
     <AuthContext.Provider  value={ {
       signupHandler,
       loginHandler,
       logoutHandler,
       home,
+      token : state.token,
       isLoggedIn: state.isLoggedIn,
       currentUser: state.currentUser,
-      token: state.token,
+     
     }}>
         {children}
     </AuthContext.Provider>
    
   )
 }
+
+export const useAuth = ( )=> useContext(AuthContext);
 

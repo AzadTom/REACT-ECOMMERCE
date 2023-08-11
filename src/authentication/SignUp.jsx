@@ -3,7 +3,7 @@ import InputField from './InputField';
 import OAuth from './OAuth';
 import { Link} from 'react-router-dom';
 import { validateSignupForm } from './validatecredential';
-import { AuthContext }from '../context/AuthContext'
+import {  useAuth }from '../context/AuthContext'
 
 
 function SignUp( ) {
@@ -12,7 +12,7 @@ function SignUp( ) {
 
         
  
-       const {signupHandler} = useContext(AuthContext);
+       const {signupHandler} = useAuth()
 
 
 
@@ -63,7 +63,7 @@ function SignUp( ) {
 
 
     return (
-      <section className='bg-no-repeat object-cover bg-gradient-to-r from-cyan-500 to-blue-800   h-screen  w-full text-white flex justify-center items-center shadow'>
+      <section className='bg-gray-950 bg-no-repeat object-cover    h-screen  w-full text-white flex justify-center items-center shadow'>
         <div className=" flex flex-col justify-center  gap-8     text-center p-8 rounded bg-white text-black  " >
       <h2 className="text-3xl">Sign Up With</h2>
 

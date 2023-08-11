@@ -33,7 +33,7 @@ function Header(){
                     <ul className='md:flex space-x-4 items-center hidden font-extralight '>
                         <li  onClick={ ()=>  navigator("/account")}><PersonIcon/></li>
                         <li><FavoriteIcon/></li>
-                        <li><LocalMallIcon/></li>
+                        <li onClick={()=> navigator("/cart")}><LocalMallIcon/></li>
                     </ul>
                 </div>
             </div>
