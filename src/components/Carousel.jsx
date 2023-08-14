@@ -36,6 +36,10 @@ function Carousel({images}) {
           <span className={images[currentIndex] == images[1] ? "bg-white rounded-[50px] w-3 h-3" : " border-white border-2 rounded-[50px] w-3 h-3"}></span>
           <span className={images[currentIndex] == images[2] ? "bg-white rounded-[50px] w-3 h-3" : " border-white border-2 rounded-[50px] w-3 h-3"}></span>
       </div>
+
+         <div className='sm:hidden absolute top-2 flex items-center w-[80%] m-6'>
+          <input type="text"  className='py-2 px-4 w-full ' placeholder='Search' />
+         </div>
         </div>
 
         
