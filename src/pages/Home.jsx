@@ -4,6 +4,7 @@ import Acta from '../components/Acta'
 import HeroSection from '../components/HeroSection'
 import Productlisting from '../components/Productlisting'
 import Category from '../components/Category'
+import CategoryBanner from '../components/CategoryBanner'
 
 
 function Home() {
@@ -18,8 +19,9 @@ function Home() {
     <>
     <HeroSection/>
     <Category/>
-    <Acta/>
-     <Productlisting/>
+     <CategoryBanner/>
+     <Acta/>
+     <CategoryBanner/>
      <Footer/>
     </>
     

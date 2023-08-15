@@ -50,7 +50,7 @@ function Productlisting() {
     },[])
 
   return (
-   <section className='sm:p-8 lg:p-12 bg-black'>
+   <section className='sm:p-8 lg:p-12 bg-slate-950'>
      
             <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4'>
                 

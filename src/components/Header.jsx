@@ -10,7 +10,7 @@ function Header(){
 
   const navigator = useNavigate()
   return (
-    <header className=' sticky top-0  bg-gradient-to-r from-sky-400 to-indigo-800  pb-2'>
+    <header className='  bg-gradient-to-r from-sky-400 to-indigo-800  pb-2'>
         <nav className=' text-white flex  justify-between  items-center  px-2 pt-4 ' >
 
 {/* left */}
