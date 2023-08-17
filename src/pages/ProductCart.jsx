@@ -47,7 +47,7 @@ function ProductCart() {
       </h2>
 
       <div className="flex flex-col  sm:flex-row sm:justify-around items-center sm:items-start">
-        <table cellPadding="16" className="m-2 bg-white p-4 rounded text-black ">
+        <table cellPadding="2" className="">
                    
               
                 <th className="font-normal text-center">ProductName</th>
@@ -58,7 +58,7 @@ function ProductCart() {
             
                
                 <tr>
-                   <td>
+                   <td className="p-2" >
                    <div className="flex flex-col justify-center items-center">
                     <img
                       src={item.image}
@@ -71,11 +71,11 @@ function ProductCart() {
                   </div>
                    </td>
 
-                   <td>
+                   <td className="p-2">
                       <p>{`$${item.price}`}</p>
                    </td>
 
-                   <td>
+                   <td className="p-2">
                     <Counter/>
                    </td>
                 </tr>
@@ -86,23 +86,18 @@ function ProductCart() {
 
         <div>
           
-            <h3 className="m-4 text-xl">SubTotal</h3>
-            <table cellPadding={16} className="bg-white p-4 text-black rounded">
+            <h3 className="m-4 text-xl">Checkout</h3>
+            <table cellPadding={2} className="bg-white  text-black  rounded text-start">
 
-            
-              <th className="font-normal text-start">Product</th>
-              <th className="font-normal text-start">Quantity</th>
-              <th className="font-normal text-start" >Price</th>
-              <th className="font-normal text-start">SubTotal</th>
               {
                 carts.map((item)=>
                 (
 
                   <tr>
-                     <td>{item.name}</td>
-                     <td>{1}</td>
-                     <td>{`$${item.price}`}</td>
-                     <td>{`$${item.price}`}</td>
+                     <td className="p-2">{item.name}</td>
+                     <td  className="p-2">{`${1}`}</td>
+                     <td  className="p-2">{`$${item.price}`}</td>
+                     <td  className="p-2">{`$${item.price}`}</td>
                   </tr>
                   
 
@@ -111,10 +106,11 @@ function ProductCart() {
               }
             </table>
 
-            <div className="bg-white p-4 rounded text-black my-4 mx-2">
+            <div className="bg-white text-black  p-4 rounded  my-4 mx-2">
                <p>{`SubTotal :  $${getTotal()}`}</p>
                <p>{`Shipping charge : $200`}</p>
                <p>{`Total : $${total+200}`}</p>
+               <button className="py-2 px-4 rounded bg-black text-white ">Proceed To Checkout</button>
             </div>
           
         </div>
