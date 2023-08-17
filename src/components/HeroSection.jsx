@@ -11,7 +11,6 @@ function HeroSection() {
 
   return (
    <section>
-    <Header/>
      <Carousel images={imges}/>
    </section>
   )

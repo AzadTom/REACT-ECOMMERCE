@@ -6,7 +6,7 @@ function Filter() {
 
   return (
     <>
-    <section className={mobilefilter ? `sm:block  fixed  z-[100] bg-slate-950  top-0   min-w-full  h-full   items-start text-white p-4 overflow-scroll border border-white `:`  bg-slate-950 hidden sm:block  sticky top-0    min-w-[12rem]  h-screen   text-white p-4 overflow-scroll border  border-white`}>
+    <section className={mobilefilter ? `sm:block  fixed  z-[100] bg-black  top-0   min-w-full  h-full   items-start text-white p-4 overflow-scroll border border-white `:`  bg-black hidden sm:block  sticky top-0    min-w-[12rem]  h-screen   text-white p-4 overflow-scroll border  border-white`}>
 
        
               
@@ -244,7 +244,7 @@ function Filter() {
     {/* mobile filter */}
     <div>
 
-        <div className='z-[80] bg-slate-950 text-white rounded flex flex-row items-center justify-between  bottom-0 fixed  w-full px-4 py-4  sm:hidden'>
+        <div className='z-[80] bg-black text-white rounded flex flex-row items-center justify-between  bottom-0 fixed  w-full px-4 py-4  sm:hidden'>
             <h3 onClick={()=> setMobilefilter(!mobilefilter)}>Filter</h3>
             <h3>Clear</h3>
         </div>

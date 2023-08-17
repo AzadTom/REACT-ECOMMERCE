@@ -5,6 +5,7 @@ import HeroSection from '../components/HeroSection'
 import Productlisting from '../components/Productlisting'
 import Category from '../components/Category'
 import CategoryBanner from '../components/CategoryBanner'
+import Header from '../components/Header'
 
 
 function Home() {
@@ -17,6 +18,7 @@ function Home() {
   return (
 
     <>
+    <Header/>
     <HeroSection/>
     <Category/>
      <CategoryBanner/>
