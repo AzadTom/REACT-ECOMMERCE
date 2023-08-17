@@ -16,7 +16,7 @@ function Header(){
 {/* left */}
             <div className='hidden sm:flex space-x-8'>
                 {/* logo */}
-                  <h1 className='text-3xl font-bold'>BOLDX</h1>
+                  <h1 className='text-3xl font-bold' onClick={()=> navigator("/")}>BOLDX</h1>
                   {/* menu */}
                   <ul className='flex space-x-4 items-center font-extralight '>
                     <li>Home</li>
@@ -33,9 +33,11 @@ function Header(){
                 </form>
                 <div>
                     <ul className='md:flex space-x-4 items-center hidden font-extralight '>
+                    <li><button className="px-4 py-2 rounded bg-white text-blue-600  font-semibold" onClick={()=> navigator("/login")}>Login</button></li>
                         <li  onClick={ ()=>  navigator("/account")}><PersonIcon/></li>
                         <li><FavoriteIcon/></li>
                         <li onClick={()=> navigator("/cart")}><LocalMallIcon/></li>
+                       
                     </ul>
                 </div>
             </div>
@@ -46,11 +48,13 @@ function Header(){
              
              <div className='flex items-center space-x-2 '>
              <MenuIcon/>
-            <h1 className='text-xl font-bold'>BOLDX</h1>
+            <h1 className='text-xl font-bold' onClick={()=> navigator("/")}>BOLDX</h1>
              </div>
 
              
              <ul className='flex  space-x-2 items-center  font-extralight '>
+             <li><button className="px-4 py-2 rounded bg-white text-blue-600  font-semibold" onClick={()=> navigator("/login")}>Login</button></li>
+
                         <li  onClick={ ()=>  navigator("/account")}><PersonIcon/></li>
                         <li><FavoriteIcon/></li>
                         <li onClick={()=> navigator("/cart")}><LocalMallIcon/></li>

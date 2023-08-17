@@ -39,55 +39,45 @@ function ProductCart() {
   }, [total,cart]);
 
   return (
-    <div className="bg-black text-white ">
+    <div className="">
       <Header />
 
       <h2 className="text-xl sm:text-2xl text-center m-6 mb-8">
         Shopping cart
       </h2>
 
-      <div className="flex flex-col  sm:flex-row sm:justify-around items-center sm:items-start">
-        <table cellPadding="2" className="">
+      <div className="flex justify-center items-center">
+      <div className="flex flex-col sm:flex-row justify-center ">
+        <div className="flex  flex-wrap items-center justify-center">
                    
               
-                <th className="font-normal text-center">ProductName</th>
-                <th className="font-normal text-center">Price</th>
-                <th className="font-normal text-center">Counter</th>
 
           {carts.map((item) => (
             
                
-                <tr>
-                   <td className="p-2" >
-                   <div className="flex flex-col justify-center items-center">
+                
+                   <div className="flex flex-col justify-center items-center p-4">
                     <img
                       src={item.image}
                       alt="cart-img"
                       className="object-cover rounded"
-                      width={100}
-                      height={100}
+                      width={150}
+                      height={150}
                     />
                     <p>{item.name}</p>
-                  </div>
-                   </td>
-
-                   <td className="p-2">
-                      <p>{`$${item.price}`}</p>
-                   </td>
-
-                   <td className="p-2">
+                    <p>{`$${item.price}`}</p>
                     <Counter/>
-                   </td>
-                </tr>
+                  </div>
+                  
               
            
           ))}
-        </table>
+        </div>
 
-        <div>
+        <div  className="flex flex-col justify-center " >
           
-            <h3 className="m-4 text-2xl">Total Price </h3>
-            <table cellPadding={2} className="bg-white  text-black  rounded text-start">
+            <h3 className="m-4 font-semibold bg-white text-black rounded px-4 py-2">Total Price </h3>
+            <table  className="bg-white  text-black  rounded text-start">
 
               {
                 carts.map((item)=>
@@ -114,6 +104,7 @@ function ProductCart() {
             </div>
           
         </div>
+      </div>
       </div>
     </div>
   );

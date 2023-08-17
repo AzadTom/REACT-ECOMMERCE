@@ -21,9 +21,7 @@ function Home() {
     <Header/>
     <HeroSection/>
     <Category/>
-     <CategoryBanner/>
      <Acta/>
-     <CategoryBanner/>
      <Footer/>
     </>
     

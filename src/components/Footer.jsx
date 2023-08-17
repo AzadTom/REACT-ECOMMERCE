@@ -62,8 +62,8 @@ function Footer() {
               </ul>
          </div>
 
-         <div>
-            <div className='flex flex-col items-start gap-2'>
+         <div className='flex'>
+            <div className='flex flex-col item-start justify-start gap-2'>
                 <span className='text-2xl font-semibold text-white'>STORE LOCATION</span>
                 <span>Find a Vans store near you</span>
                 <button className='text-white bg-red-600 px-4 py-2 rounded '>FIND A STORE</button>
