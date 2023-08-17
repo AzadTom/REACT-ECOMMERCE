@@ -86,7 +86,7 @@ function ProductCart() {
 
         <div>
           
-            <h3 className="m-4 text-xl">Checkout</h3>
+            <h3 className="m-4 text-2xl">Total Price </h3>
             <table cellPadding={2} className="bg-white  text-black  rounded text-start">
 
               {

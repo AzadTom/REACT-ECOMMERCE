@@ -59,7 +59,7 @@ function Productlisting() {
 
                     products.map((item)=>(
 
-                        <div className='p-4 sm:p-6 w-full h-full'>
+                        <div className='p-2 sm:p-6 w-full h-full'>
                             <ProductCard item={item}/>
                         </div>
                     ))
