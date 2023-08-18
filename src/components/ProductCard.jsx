@@ -53,7 +53,9 @@ function ProductCard({ item }) {
     <section
       className="cursor-pointer shadow md:shadow-md lg:shadow-lg"
       id={item._id}
+      onClick={() => navigate(`/productDetails/${item._id}`)}
       key={item._id}>
+           
       <div className="relative w-full h-full ">
         <img
           src={item.image}

@@ -1,53 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import ProductCard from './ProductCard'
-import axios from 'axios'
+import {useProductsData} from '../context/productdata';
 
 
 function Productlisting() {
 
     const[products,setProducts] = useState([]);
 
-    async function getAllproducts(){
 
-       try {
+    const {productsData} = useProductsData();
 
-        const  data  = localStorage.getItem("login");
- 
-        const  {token} = JSON.parse(data);
+    useEffect(()=>
+    {
+        setProducts(productsData);
 
-        
-      
-        const response = await axios.get("api/auth/getproducts",{
-            headers:{
-                Authorization : token
-            }
-        })
-      
-
-        const  { products} = response.data
-
-        setProducts(products)
-
-      
-     
-       
-
-        
-       } catch (error) {
-
-        console.log(error)
-        
-       }
-
-
-
-    }
-
-    useEffect(()=>{
-
-        getAllproducts()
-        
     },[])
+    
+    
 
   return (
    <section className='sm:p-8  bg-black'>

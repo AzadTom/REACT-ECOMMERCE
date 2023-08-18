@@ -20,7 +20,7 @@ function ProductCart() {
    
      
     
-    carts.forEach((item)=>{
+    cart.forEach((item)=>{
 
        total= total+item.price;
 
@@ -48,7 +48,7 @@ function ProductCart() {
 
       <div className="flex justify-center items-center">
       <div className="flex flex-col sm:flex-row justify-center ">
-        <div className="flex  flex-wrap items-center justify-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 justify-start items-start">
                    
               
 

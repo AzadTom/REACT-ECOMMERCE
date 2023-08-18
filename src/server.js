@@ -130,36 +130,10 @@ users.forEach((element) => {
 
       })
 
-      this.get("/auth/getproducts",(schema,request)=>{
-
-        const encodedToken = request.requestHeaders.Authorization;
-
-        const decodeToken = jwtDecode(encodedToken);
-
-        if(decodeToken)
-        {
-
-          const user = schema.users.findBy({ email: decodeToken.email });
-
-          if(user)
-          {
-
+      this.get("/getproducts",(schema,request)=>{
 
             return new Response(201,{},{products:this.db.products});
-          }
-
-        }
-        return new Response(
-          401,
-          {},
-          { errors: ["The token is invalid. Unauthorized access error."] }
-        );
-
-
-
-      
-
-
+  
       })
 
 

@@ -7,6 +7,7 @@ import './index.css'
 import makeServer from "./server.js"
 import AuthProvider from '../src/context/AuthContext.jsx'
 import CartContextProvider from '../src/context/CartContext.jsx';
+import ProductsDataProvider from '../src/context/productdata.jsx';
 
 
 
@@ -24,9 +25,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
  
 
  <AuthProvider>
+  <ProductsDataProvider>
   <CartContextProvider>
   <App/>
   </CartContextProvider>
+  </ProductsDataProvider>
+  
    </AuthProvider>
  
   

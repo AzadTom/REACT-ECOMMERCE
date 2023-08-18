@@ -8,6 +8,7 @@
   
   import ProductCart from './pages/ProductCart';
   import Products from './pages/Products';
+  import ProductDetail from './pages/ProductDetail'
 
   function App(){
    
@@ -24,6 +25,10 @@
         <Route path='/account' element={ <Account/>}/>
         <Route path='/cart' element={<ProductCart/>}/>
         <Route path='/products' element={<Products/>}/>
+        <Route
+          path="/productDetails/:productId"
+          element={<ProductDetail/>}
+        />
 
       </Routes>
       
