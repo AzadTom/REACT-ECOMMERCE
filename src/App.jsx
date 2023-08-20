@@ -1,17 +1,21 @@
- import React from 'react';
+ import React, { Suspense, lazy } from 'react';
   import { Route, Routes } from 'react-router-dom';
-  import Home from "./pages/Home"
-  import Login from "./authentication/Login"
 
-  import SignUp from "./authentication/SignUp"
-  import Account from './pages/Account'
+const Home = lazy(()=> import('./pages/Home'));
+const Login = lazy(()=> import("./authentication/Login"));
+
+  const  SignUp  = lazy(()=> import('./authentication/SignUp'));
+  const  Account = lazy(()=> import('./pages/Account'));
   
-  import ProductCart from './pages/ProductCart';
-  import Products from './pages/Products';
-  import ProductDetail from './pages/ProductDetail'
+  const ProductCart =  lazy(()=> import('./pages/ProductCart'));
+  const Products =  lazy(()=> import('./pages/Products'));
+
+  const ProductDetail  =  lazy(()=> import('./pages/ProductDetail'));
+
   import Header from './components/Header';
   import Footer from './components/Footer';
   import ScrollToTop from './components/ScrollToTop';
+  import Loading from './components/Loading';
 
   function App(){
    
@@ -23,12 +27,12 @@
         <ScrollToTop/>
       <Routes>
 
-        <Route path='/' element={<Home/>}/>
-        <Route path='/signup' element={<SignUp/>}/>
-        <Route path='login' element={<Login/>}/>
-        <Route path='/account' element={ <Account/>}/>
-        <Route path='/cart' element={<ProductCart/>}/>
-        <Route path='/products' element={<Products/>}/>
+        <Route path='/' element={<Suspense fallback={<Loading/>}><Home/></Suspense>}/>
+        <Route path='/signup' element={<Suspense fallback={<Loading/>}><SignUp/></Suspense>}/>
+        <Route path='login' element={<Suspense fallback={<Loading/>}><Login/></Suspense>}/>
+        <Route path='/account' element={ <Suspense fallback={<Loading/>}><Account/></Suspense>}/>
+        <Route path='/cart' element={<Suspense fallback={<Loading/>}><ProductCart/></Suspense>}/>
+        <Route path='/products' element={<Suspense fallback={<Loading/>}><Products/></Suspense>}/>
         <Route
           path="/productDetails/:productId"
           element={<ProductDetail/>}
