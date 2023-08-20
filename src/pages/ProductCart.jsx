@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
@@ -11,6 +12,7 @@ function ProductCart() {
 
   const {
     cartState: { cart },
+    removeFromCartHandler
   } = useCart();
 
 
@@ -39,64 +41,98 @@ function ProductCart() {
   }, [total,cart]);
 
   return (
-    <div className="">
-      <Header />
+    <div>
+     
+     {
 
-      <h2 className="text-xl sm:text-2xl text-center m-6 mb-8">
-        Shopping cart
-      </h2>
-
-      <div className="flex justify-center items-center">
-      <div className="flex flex-col sm:flex-row justify-center ">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 justify-start items-start">
+        carts.length == 0 ? (
+          <div className="w-full h-[32rem] flex justify-center items-center">Empty Cart...</div>
+        ) :(
+          <div className="flex justify-center items-center">
+      <div className="flex flex-col sm:flex-row justify-center sm:gap-8 ">
+       
                    
               
 
-          {carts.map((item) => (
+         
             
                
+
+            <div>
+
+              <table cellPadding={16}>
+
+                    <thead>
+                      <tr>
+                        <td></td>
+                        <td>PRODUCT</td>
+                        <td>PRICE</td>
+                        <td>QUANTITY</td>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                        
+                        { carts.map((item)=>(
+
+                           <tr>
+                            <td>
+                            <div className="cursor-pointer" onClick={()=> removeFromCartHandler(item._id)}>
+                               <HighlightOffIcon/>
+                            </div>
+                            </td>
+                          <td>
+                          <div>
+                                <div className="flex flex-col justify-center items-center w-full h-full">
+                                 <img src={item.image} alt="hero-img"  width={100}/>
+                                  <p>{item.name}</p>
+                                </div>
+                           </div>
+                          </td>
+                          <td>{item.price}</td>
+                          <td>
+                           <Counter/>
+                          </td>
+                       </tr>
+                        ))
+                         
+                      }
+                    </tbody>
+
+              </table>
+              
+            </div>
                 
-                   <div className="flex flex-col justify-center items-center p-4">
-                    <img
-                      src={item.image}
-                      alt="cart-img"
-                      className="object-cover rounded"
-                      width={150}
-                      height={150}
-                    />
-                    <p>{item.name}</p>
-                    <p>{`$${item.price}`}</p>
-                    <Counter/>
-                  </div>
+                   
                   
               
            
-          ))}
-        </div>
+        
+        
 
-        <div  className="flex flex-col justify-center " >
+        <div  className="flex flex-col  " >
           
             <h3 className="m-4 font-semibold bg-white text-black rounded px-4 py-2">Total Price </h3>
-            <table  className="bg-white  text-black  rounded text-start">
+            <div  className="bg-white  text-black  rounded text-start flex flex-col m-4">
 
               {
                 carts.map((item)=>
                 (
 
-                  <tr>
-                     <td className="p-2">{item.name}</td>
-                     <td  className="p-2">{`${1}`}</td>
-                     <td  className="p-2">{`$${item.price}`}</td>
-                     <td  className="p-2">{`$${item.price}`}</td>
-                  </tr>
+                <div className="flex justify-between p-2 gap-2 ">
+                    
+                    <p>{item.name}</p>
+                    <p>{`$${item.price}`}</p>
+                   
+                </div>
                   
 
                 ))
 
               }
-            </table>
+            </div>
 
-            <div className="bg-white text-black  p-4 rounded  my-4 mx-2">
+            <div className="bg-white text-black  p-4 rounded  m-4">
                <p>{`SubTotal :  $${getTotal()}`}</p>
                <p>{`Shipping charge : $200`}</p>
                <p>{`Total : $${total+200}`}</p>
@@ -104,8 +140,15 @@ function ProductCart() {
             </div>
           
         </div>
+
       </div>
       </div>
+        )
+     }
+
+      
+
+      
     </div>
   );
 }

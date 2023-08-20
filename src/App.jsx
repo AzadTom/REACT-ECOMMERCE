@@ -9,6 +9,9 @@
   import ProductCart from './pages/ProductCart';
   import Products from './pages/Products';
   import ProductDetail from './pages/ProductDetail'
+  import Header from './components/Header';
+  import Footer from './components/Footer';
+  import ScrollToTop from './components/ScrollToTop';
 
   function App(){
    
@@ -16,7 +19,8 @@
     return (
       <>
       
-
+        <Header/>
+        <ScrollToTop/>
       <Routes>
 
         <Route path='/' element={<Home/>}/>
@@ -31,7 +35,7 @@
         />
 
       </Routes>
-      
+      <Footer/>
      
       </>
     );

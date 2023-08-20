@@ -8,7 +8,7 @@ import Searching from '../components/Searching'
 function Products() {
   return (
     <>
-    <Header/>
+    
 
      <Searching/>
     <section  className='flex'>
@@ -17,7 +17,7 @@ function Products() {
     <Productlisting/>
 
    </section>
-    <Footer/>
+   
     </>
    
   )

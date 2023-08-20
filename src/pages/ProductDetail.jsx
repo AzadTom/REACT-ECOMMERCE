@@ -38,7 +38,7 @@ function ProductDetail() {
          
     <section key={`${item._id}`}>
 
-    <Header/>
+    
     <div className='flex justify-center items-center'>
 
      
@@ -74,7 +74,7 @@ function ProductDetail() {
 
 
 
-    <Footer/>
+  
 
     </section>
        

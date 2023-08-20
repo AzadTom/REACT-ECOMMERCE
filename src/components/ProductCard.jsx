@@ -46,6 +46,21 @@ function ProductCard({ item }) {
   
 
 
+    const handleRating= (num)=>
+    {
+          
+       let rating = "";
+
+       for (let index = 0; index < num; index++) {
+        
+            rating += "⭐";
+        
+       }
+
+       return rating;
+
+
+    }
   
 
 
@@ -71,8 +86,9 @@ function ProductCard({ item }) {
           <div className="flex gap-3 m-2 ">
           <p >{`$${item.price}`}</p>
           <p className="line-through text-gray-400">{`$${item.originalPrice}`}</p>
+         
           </div>
-          
+          <p className="py-2 px-2">{`${handleRating(item.rating)}` }</p>
           <>
 
           {

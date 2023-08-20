@@ -18,10 +18,10 @@ function Home() {
   return (
 
     <>
-    <Header/>
+    
     <HeroSection/>
     <Category/>
-     <Footer/>
+     
     </>
     
   )
