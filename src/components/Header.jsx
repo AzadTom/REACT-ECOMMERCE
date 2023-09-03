@@ -6,12 +6,23 @@ import { useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import {useFilter} from '../context/FilterContext';
 import { SEARCH_PRODUCTS } from '../utils/constsant';
+import {useWishlist} from '../context/wishlistContext';
+import {useCart} from '../context/CartContext';
+import { useAuth } from '../context/authContext';
+
 
 
 function Header(){
 
   const navigator = useNavigate();
   const { dispatch } = useFilter();
+
+  const { wishlistState, removeFromWishlistHandler } = useWishlist();
+  const { wishlist } = wishlistState;
+
+  const { isLoggedIn }  = useAuth()
+  const { cartState, addToCartHandler } = useCart();
+  const { cart } = cartState;
 
   const handleSearch = (event)=>
   {
@@ -34,7 +45,7 @@ function Header(){
                   <h1 className='text-3xl font-bold cursor-pointer' onClick={()=> navigator("/")}>BOLDX</h1>
                   {/* menu */}
                   <ul className='flex space-x-4 items-center font-extralight '>
-                    <li>Home</li>
+                    <li onClick={()=> navigator("/")}>Home</li>
                     <li>Buy Now</li>
                   </ul>
             </div>
@@ -50,8 +61,19 @@ function Header(){
                     <ul className='md:flex space-x-4 items-center hidden font-extralight '>
                     <li><button className="px-4 py-2 rounded bg-white text-blue-600  font-semibold" onClick={()=> navigator("/login")}>Login</button></li>
                         <li  onClick={ ()=>  navigator("/account")}><PersonIcon/></li>
-                        <li><FavoriteIcon/></li>
-                        <li onClick={()=> navigator("/cart")}><LocalMallIcon/></li>
+                        <li onClick={()=> navigator("wishlist")}> 
+                         <div className='relative'>
+                          <FavoriteIcon/>
+                         {  isLoggedIn && <span className={wishlist.length >0 ? "bg-red-600 rounded-[100px] text-xs p-1" : " "}> {wishlist.length ===  0 ? " ": `${wishlist.length}`}</span>}
+                          </div>
+                          </li>
+                        <li onClick={()=> navigator("/cart")}> 
+                           <div>
+                          <LocalMallIcon/> 
+                          {isLoggedIn && <span  className={ cart.length >0 ? "rounded-[100px] text-xs p-1 bg-red-600" : " " }> { cart.length ===0 ? " ":`${cart.length}`}</span>
+}
+                          </div>
+                          </li>
                        
                     </ul>
                 </div>
@@ -71,8 +93,19 @@ function Header(){
              <li><button className="px-4 py-2 rounded bg-white text-blue-600  font-semibold" onClick={()=> navigator("/login")}>Login</button></li>
 
                         <li  onClick={ ()=>  navigator("/account")}><PersonIcon/></li>
-                        <li><FavoriteIcon/></li>
-                        <li onClick={()=> navigator("/cart")}><LocalMallIcon/></li>
+                        <li onClick={()=> navigator("wishlist")}>
+                          <div>
+                          <FavoriteIcon/>
+                          {  isLoggedIn && <span className={wishlist.length >0 ? "bg-red-600 rounded-[100px] text-xs p-1" : " "}> {wishlist.length ===  0 ? " ": `${wishlist.length}`}</span>}
+                          </div>
+                        </li>
+                        <li onClick={()=> navigator("/cart")}>
+                         
+                          <div>
+                          <LocalMallIcon/> 
+                          {isLoggedIn && <span  className={ cart.length >0 ? "rounded-[100px] text-xs p-1 bg-red-600" : " " }> { cart.length ===0 ? " ":`${cart.length}`}</span>
+}                          </div>
+                          </li>
                     </ul>
 
            

@@ -3,7 +3,8 @@ import InputField from './InputField';
 import OAuth from './OAuth';
 import { Link} from 'react-router-dom';
 import { validateSignupForm } from './validatecredential';
-import {  useAuth }from '../context/AuthContext'
+import { useAuth } from '../context/AuthContext';
+
 
 
 function SignUp( ) {

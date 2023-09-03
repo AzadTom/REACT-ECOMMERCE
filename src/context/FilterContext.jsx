@@ -1,6 +1,6 @@
 import { createContext, useReducer, useContext, useEffect } from "react";
 
-import { filterReducer} from '../reducers/filterreducer';
+import { filterReducer} from '../reducers/filterReducer';
 import { useProductsData } from "../context/productdata";
 import { UPDATE_PRODUCTS } from "../utils/constsant";
 

@@ -106,7 +106,7 @@ export default function AuthProvider({children}) {
 
   const logoutHandler = () => {
     localStorage.removeItem("login");
-    dispatch({ type: LOGOUT });
+   dispatch({type:LOGOUT});
   
   };
 

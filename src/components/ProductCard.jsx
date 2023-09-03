@@ -1,7 +1,11 @@
 import React  from "react";
-import { useAuth} from '../context/AuthContext';
+import { useAuth } from "../context/authContext";
 import { useCart } from '../context/CartContext';
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useWishlist} from '../context/wishlistContext'
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
 
 function ProductCard({ item }) {
@@ -11,6 +15,42 @@ function ProductCard({ item }) {
   const { cartState, addToCartHandler } = useCart();
   const { cart } = cartState;
   const { isLoggedIn } = useAuth();
+
+
+  const {
+    wishlistState,
+    removeFromWishlistHandler,
+    addToWishlistHandler,
+  } = useWishlist();
+
+
+  const { wishlist } = wishlistState;
+
+   //--------------For Wishlist----------------------//
+
+  // Check if the product is in the wishlist
+  const isFavorite =
+    isLoggedIn &&
+    wishlist &&
+    wishlist.find((wishlistProduct) => wishlistProduct._id === item._id);
+
+  const toggleWishlist = (e) => {
+    e.stopPropagation();
+
+    if (!isLoggedIn) {
+      navigate("/login");
+      return;
+    }
+
+    if (isFavorite) {
+      removeFromWishlistHandler(item._id);
+    } else {
+      addToWishlistHandler(item);
+      
+    }
+  };
+
+  
 
 
 
@@ -68,15 +108,21 @@ function ProductCard({ item }) {
     <section
       className="cursor-pointer shadow md:shadow-md lg:shadow-lg"
       id={item._id}
-      onClick={() => navigate(`/productDetails/${item._id}`)}
       key={item._id}>
            
       <div className="relative w-full h-full ">
-        <img
+        <div className="absolute top-2 right-2  w-auto h-auto bg-white rounded-[50px] p-2"  onClick={toggleWishlist}  key={item._id}>
+          {isFavorite? (<div className="text-black"> <FavoriteIcon/> </div>) : (<div className="text-black"><FavoriteBorderOutlinedIcon/></div>)}
+            
+        </div>
+       <div className=" w-full h-full">
+       <img
           src={item.image}
           alt="hero-img"
-          className="object-cover rounded rounded-b-none w-full h-[16rem]"
+          onClick={() => navigate(`/productDetails/${item._id}`)}
+          className="object-cover rounded rounded-b-none w-full  h-full"
         />
+       </div>
 
         <div className="p-2 text-white rounded rounded-se-none rounded-ss-none bg-gray-900">
           <h3 className=" text-xl font-semibold">{item.name}</h3>

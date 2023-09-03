@@ -1,5 +1,4 @@
 import React, { createContext, useContext ,useReducer } from 'react'
-import { useAuth } from './AuthContext';
 import { cartReducer } from '../reducers/cartreducer';
 
 import {
@@ -10,6 +9,8 @@ import {
     getCart,
     removeFromCart,
   }  from "../utils/cartservice"
+import { useAuth } from './AuthContext';
+
 
 
 

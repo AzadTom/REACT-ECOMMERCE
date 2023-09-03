@@ -6,7 +6,7 @@ export const formatDate = () => dayjs().format("YYYY-MM-DDTHH:mm:ssZ");
 export const secretcode = "secretcode";
 
 export const requiresAuth = function (request) {
-    const encodedToken = request.requestHeaders.authorization;
+    const encodedToken = request.requestHeaders.Authorization;
     const decodedToken = jwtDecode(encodedToken);
     if (decodedToken) {
       const user = this.db.users.findBy({ email: decodedToken.email });

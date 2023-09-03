@@ -12,6 +12,8 @@ const Login = lazy(()=> import("./authentication/Login"));
 
   const ProductDetail  =  lazy(()=> import('./pages/ProductDetail'));
 
+  const WishList  = lazy(()=> import('./pages/Wishlist'));
+
   import Header from './components/Header';
   import Footer from './components/Footer';
   import ScrollToTop from './components/ScrollToTop';
@@ -33,9 +35,10 @@ const Login = lazy(()=> import("./authentication/Login"));
         <Route path='/account' element={ <Suspense fallback={<Loading/>}><Account/></Suspense>}/>
         <Route path='/cart' element={<Suspense fallback={<Loading/>}><ProductCart/></Suspense>}/>
         <Route path='/products' element={<Suspense fallback={<Loading/>}><Products/></Suspense>}/>
+        <Route path='/wishlist' element={<Suspense fallback={<Loading/>}><WishList/></Suspense>}/>
         <Route
           path="/productDetails/:productId"
-          element={<ProductDetail/>}
+          element={<Suspense fallback={<Loading/>}><ProductDetail/></Suspense>}
         />
 
       </Routes>
