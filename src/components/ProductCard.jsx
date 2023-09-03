@@ -1,5 +1,5 @@
 import React  from "react";
-import { useAuth } from "../context/authContext";
+import { useAuth } from "../context/AuthContext";
 import { useCart } from '../context/CartContext';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
