@@ -8,7 +8,7 @@ import {useFilter} from '../context/FilterContext';
 import { SEARCH_PRODUCTS } from '../utils/constsant';
 import {useWishlist} from '../context/wishlistContext';
 import {useCart} from '../context/CartContext';
-import { useAuth } from '../context/authContext';
+import { useAuth } from '../context/AuthContext';
 
 
 
