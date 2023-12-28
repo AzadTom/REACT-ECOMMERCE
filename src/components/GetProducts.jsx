@@ -15,7 +15,7 @@ function GetProducts() {
   const leftscroll = ()=>{
 
 
-    document.getElementById("content").scrollLeft -=400;
+    document.getElementById("content").transform = 'translateX(-400px)';
 
 
   }
@@ -23,7 +23,7 @@ function GetProducts() {
   const rightscroll = ()=>{
 
 
-        document.getElementById("content").scrollLeft +=400;
+        document.getElementById("content").stransform = 'translateX(400px)';
 
   }
 
