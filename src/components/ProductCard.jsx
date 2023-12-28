@@ -8,7 +8,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
 
-function ProductCard({ item }) {
+function ProductCard({ item ,curr}) {
 
   const navigate = useNavigate();
 
@@ -101,12 +101,15 @@ function ProductCard({ item }) {
 
 
     }
+
+
+  
   
 
 
   return (
     <section
-      className="cursor-pointer shadow md:shadow-md lg:shadow-lg"
+      className="cursor-pointer shadow md:shadow-md lg:shadow-lg"  style={{transform:`translateX(-${curr*20}%)`}}
       id={item._id}
       key={item._id}>
            
