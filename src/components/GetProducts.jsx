@@ -10,24 +10,11 @@ import ProductCard from "./ProductCard";
 function GetProducts() {
   const { productsData } = useProductsData();
 
-  const[curr,setCurr]= useState(0);
+ 
 
 
    const navigate = useNavigate();
-  const leftscroll = ()=>{
-
-
-      setCurr((prev)=>(prev>5?0:prev-1);
-
-
-  }
-
-  const rightscroll = ()=>{
-
-
-       setCurr((prev)=>(prev>5?0:prev+1);
-
-  }
+  
 
 
   return (
@@ -42,8 +29,8 @@ function GetProducts() {
         <div className="flex flex-no-wrap overflow-x-auto scroll-smooth scrollbar-hide  gap-6  m-8   ">
         {productsData.map((item) => ( <div className="w-[250px]"> <ProductCard item={item} curr={curr}/></div>))}
       </div>
-      <button onClick={leftscroll} className="bg-white p-2 m-2 text-black rounded absolute top-1/3 left-0"> <ArrowCircleLeftIcon/></button>
-     <button onClick={rightscroll} className="bg-white p-2 m-2 text-black rounded absolute top-1/3 right-0"><ArrowCircleRightIcon/></button>
+{/*       <button onClick={leftscroll} className="bg-white p-2 m-2 text-black rounded absolute top-1/3 left-0"> <ArrowCircleLeftIcon/></button>
+     <button onClick={rightscroll} className="bg-white p-2 m-2 text-black rounded absolute top-1/3 right-0"><ArrowCircleRightIcon/></button> */}
 
         </div>
       
