@@ -27,7 +27,7 @@ function GetProducts() {
         
         <div className="overflow-clip">
         <div className="flex flex-no-wrap overflow-x-auto scroll-smooth scrollbar-hide  gap-6  m-8   ">
-        {productsData.map((item) => ( <div className="w-[250px]"> <ProductCard item={item} curr={curr}/></div>))}
+        {productsData.map((item) => ( <div className="w-[250px]"> <ProductCard item={item} /></div>))}
       </div>
 {/*       <button onClick={leftscroll} className="bg-white p-2 m-2 text-black rounded absolute top-1/3 left-0"> <ArrowCircleLeftIcon/></button>
      <button onClick={rightscroll} className="bg-white p-2 m-2 text-black rounded absolute top-1/3 right-0"><ArrowCircleRightIcon/></button> */}
