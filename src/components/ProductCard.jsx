@@ -8,7 +8,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
 
-function ProductCard({ item }) {
+function ProductCard({ item ,current}) {
 
   const navigate = useNavigate();
 
@@ -109,7 +109,7 @@ function ProductCard({ item }) {
 
   return (
     <section
-      className="cursor-pointer shadow md:shadow-md lg:shadow-lg"  
+      className="cursor-pointer shadow md:shadow-md lg:shadow-lg"   style={{"transform":`translateX(${current}%)`}}
       id={item._id}
       key={item._id}>
            
@@ -141,7 +141,7 @@ function ProductCard({ item }) {
           <>
 
           {
-            isAddedToCart ? (<button className="text-white rounded bg-slate-950 w-full text-center py-2">Go To Cart</button>)
+            isAddedToCart ? (<button className="text-white rounded bg-slate-950 w-full text-center py-2" onClick={()=> navigate("/cart")}>Go To Cart</button>)
             :(<button  onClick={toggleCart} className={item.isOutOfStock ?  "text-white rounded bg-slate-600 w-full text-center py-2": "text-white rounded bg-slate-950 w-full text-center py-2" } disabled={item.isOutOfStock ? true : false}>
             {item.isOutOfStock ? "Out of Stock " :"Add to Cart"}
           </button>)

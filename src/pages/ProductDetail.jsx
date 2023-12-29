@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import {useProductsData} from '../context/productdata';
 import ProductCard from '../components/ProductCard';
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Productlisting from '../components/Productlisting';
 import Counter from '../components/Counter';
+import { useCart } from '../context/CartContext';
+import { useAuth } from "../context/AuthContext";
 
 
 function ProductDetail() {
@@ -13,8 +15,29 @@ function ProductDetail() {
 
   const {productId} = useParams();
 
+  const navigate = useNavigate();
+
   const {productsData} = useProductsData();
 
+
+  const { cartState, addToCartHandler } = useCart();
+  const { cart } = cartState;
+  const { isLoggedIn } = useAuth();
+
+
+  const isAddedToCart = cart && cart.find((cartProduct) => cartProduct._id === productId);
+
+  const toggleCart = (e) => {
+    e.stopPropagation();
+    if (!isLoggedIn) {
+      navigate("/login");
+      return;
+    }
+
+    addToCartHandler(item);
+    console.log("cart in done")
+
+  };
 
   const item = productsData?.find((it)=>
   {
@@ -52,10 +75,17 @@ function ProductDetail() {
      <h3 className='font-semibold text-2xl'>{item?.name}</h3>
      <p>{item?.description}</p>
      <p>{`$${item?.price}`}</p>
-     <Counter/>
+    
 
      <div>
-      <button className='bg-white text-black px-8 py-2 rounded'>Add To Bag</button>
+     {
+            isAddedToCart ? (<button className="text-white rounded bg-slate-950 w-full text-center py-2 px-4 " onClick={()=> navigate("/cart")}>Go To Cart</button>)
+            :(<button  onClick={toggleCart} className={item.isOutOfStock ?  "text-white rounded bg-slate-600 w-full text-center py-2 px-4": "text-white rounded bg-slate-950 w-full text-center py-2 px-4" } disabled={item.isOutOfStock ? true : false}>
+            {item.isOutOfStock ? "Out of Stock " :"Add to Cart"}
+          </button>)
+           
+          
+          }
      </div>
 
 </div>

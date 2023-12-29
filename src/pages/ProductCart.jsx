@@ -11,7 +11,7 @@ function ProductCart() {
   const [carts, setCart] = useState([]);
   let total =0;
 
-
+   
   const {
     cartState: { cart },
     removeFromCartHandler,
@@ -51,7 +51,7 @@ function ProductCart() {
      {
 
         carts.length == 0 ? (
-          <div className="w-full h-[32rem] flex justify-center items-center">Empty Cart...</div>
+          <div className="w-full h-[32rem] flex justify-center items-center">Cart is empty!</div>
         ) :( isLoggedIn&& 
   
        <div className="flex justify-center items-center">
@@ -73,7 +73,7 @@ function ProductCart() {
                          <td></td>
                          <td>PRODUCT</td>
                          <td>PRICE</td>
-                         <td>QUANTITY</td>
+                         <td>Quantity</td>
                        </tr>
                      </thead>
  
@@ -97,7 +97,7 @@ function ProductCart() {
                            </td>
                            <td>{item.price}</td>
                            <td>
-                            <Counter/>
+                             1
                            </td>
                         </tr>
                          ))
